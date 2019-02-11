@@ -3,16 +3,30 @@
 <head>
   <meta charset="utf-8">
   <title>Reservation</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body onload="renseignerVille()">
+        <header>
+                <h1>A&L - Agence de voyage</h1>
+                <nav>
+                        <ul>
+                            <li><a href="index.html">Les destinations</a></li>
+                            <li><a href="#">Réservation</a></li>
+                            <li><a href="#">A propos & Contact</a></li>
+                        </ul>
+                </nav>
+                <h2>Nos destinations</h2>
+            </header>
+
   <form action="#" onsubmit="return Prix(this);">
   Ville : <select name="ville" id="ville">
    <option value="paris">Paris</option>
    <option value="london">Londres</option>
    <option value="madrid">Madrid</option>
    <option value="rome">Rome</option>
+   <option value="NY">New-York</option>
+   <option value="lecap">Le Cap</option>
 	</select>
    </input><br>
   Nom : <input type="text" name="nom"><br>
@@ -27,6 +41,17 @@
   Questions : <input type="text" name="quest"><br>
   <input type="submit" value="Submit">
 </form>
+
+<footer>
+        <h3>TLI - Lucas CLEMENTEI & Alexandre GUILLON</h3>
+        <h3>Contact : <a href="mailto:alexandre.guillon@cpe.fr">
+                        alexandre.guillon@cpe.fr</a> / 
+                        <a href="mailto:lucas.clementei@cpe.fr">
+                                lucas.clementei@cpe.fr</a>
+        </h3>
+        <br />
+</footer> 
+
 <script type="text/javascript">
    function Prix(formulaire) { // Fonction appelée par le bouton
 
@@ -46,6 +71,12 @@
     		break;
   		case 'Rome':
    			document.getElementById("ville").selectedIndex="3";
+    		break; 
+  		case 'New-York':
+   			document.getElementById("ville").selectedIndex="4";
+    		break; 
+  		case 'Le Cap':
+   			document.getElementById("ville").selectedIndex="5";
     		break;    		
   		default:
   			document.getElementById("ville").selectedIndex= "0";

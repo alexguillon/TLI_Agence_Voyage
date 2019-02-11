@@ -1,0 +1,75 @@
+body{
+    margin: 0; 
+    padding: 0; 
+}
+header{
+    background-color: rgb(134, 134, 134);
+    margin-top: -28px;
+}
+header > h1{
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+}
+header > h2{
+    color: white;
+    font-size: 2.2em;
+    margin-left: 40px;
+}
+nav{
+    text-align: center;
+    width: auto;
+}
+nav > ul > li {
+    display: inline-block; 
+}
+nav > ul > li > a{
+    color: white;
+    font-size: 1.8em;
+    margin-left : 10px;
+    margin-right : 10px;
+}
+ul#destination > li > img{
+    width : 100%;
+    height: 350px;
+}
+ul#destination > li{
+    background-color: rgb(134, 134, 134);
+    display: inline-block;
+    width : 31%;
+    height : 100%;
+    margin : 7px;
+}
+ul#destination > li > h2{
+    text-align: center;
+    color: white;
+    font-size: 1.8em;
+}
+ul#destination > li > h2 > a{
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;
+}
+ul#destination > li > h3{
+    text-align: center;
+    color: white;
+}
+ul#destination > li > p{
+    text-align: center;
+    color: white;
+}
+footer{
+    background-color: rgb(134, 134, 134);
+}
+footer > h3{
+    text-align: center;
+    color: white;
+}
+footer h3 > a{
+    color: white;
+}
+form {
+    background-color: gray;
+    color : white;
+    font-size: 2em;
+}
