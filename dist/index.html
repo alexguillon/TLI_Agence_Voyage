@@ -3,27 +3,73 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Titre de la page</title>
+        <title>A&L - Agence de voyage</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/script.js"></script>
     </head>
 
     <body>
-        <nav>
-        <ul>
-            <li><a href="#">Les destinations</a></li>
-            <li><a href="#">Réservation</a></li>
-            <li><a href="#">A propos & Contact</a></li>
-        </ul>
-        </nav>
-
-        <h1>Nos destinations</h1>
-            <ul>
-                <li><h2><a href="#">Paris</a></h2></li>
-                <li><h2><a href="#">Londres</a></h2></li>
-                <li><h2><a href="#">Madrid</a></h2></li>
-                <li><h2><a href="#">Rome</a></h2></li>
+        <header>
+            <h1>A&L - Agence de voyage</h1>
+            <nav>
+                    <ul>
+                        <li><a href="index.html">Les destinations</a></li>
+                        <li><a href="reservation.html">Réservation</a></li>
+                        <li><a href="#">A propos & Contact</a></li>
+                    </ul>
+            </nav>
+            <h2>Nos destinations</h2>
+        </header>
+    
+        
+            <ul id="destination">
+                <li>
+                    <img src="img/paris.jpg"/>
+                    <h2><a href="reservation.html?ville=Paris">Paris</a></h2>
+                    <h3>3 jours de rêves dans la capitale française</h3>
+                    <p>Prix : 39 euros (par adulte et par jour)</p>
+                </li>
+                <li>
+                    <img src="img/londres.jpg" />
+                    <h2><a href="reservation.html?ville=Londres">Londres</a></h2>
+                    <h3>British journey !</h3>
+                    <p>Prix : 42 euros (par adulte et par jour)</p>
+                </li>
+                <li>
+                    <img src="img/madrid.jpg" />
+                    <h2><a href="reservation.html?ville=Madrid">Madrid</a></h2>
+                    <h3>1 semaine all inclusive à Madrid</h3>
+                    <p>Prix : 51 euros (par adulte et par jour)</p>
+                </li>
+                <li>
+                    <img src="img/rome.jpg" />
+                    <h2><a href="reservation.html?ville=Rome">Rome</a></h2>
+                    <h3>1 stage Pizza dans une pizzeria 5 étoiles</h3>
+                    <p>Prix : 25 euros (par adulte et par jour)</p>
+                </li>
+                <li>
+                        <img src="img/new-york.jpg" />
+                        <h2><a href="reservation.html?ville=New-York">New-York</a></h2>
+                        <h3>American Dream</h3>
+                        <p>Prix : 38 euros (par adulte et par jour)</p>
+                </li>
+                <li>
+                        <img src="img/ads.jpg" />
+                        <h2><a href="reservation.html?ville=Le Cap">Le Cap</a></h2>
+                        <h3>L'Afrique du Sud à petit prix</h3>
+                        <p>Prix : 2 euros (par adulte et par jour)</p>
+                </li>
             </ul>
-    </body>
 
+            <footer>
+                    <h3>TLI - Lucas CLEMENTEI & Alexandre GUILLON</h3>
+                    <h3>Contact : <a href="mailto:alexandre.guillon@cpe.fr">
+                                    alexandre.guillon@cpe.fr</a> / 
+                                    <a href="mailto:lucas.clementei@cpe.fr">
+                                            lucas.clementei@cpe.fr</a>
+                    </h3>
+                    <br />
+            </footer> 
+
+    </body>
     </html>
