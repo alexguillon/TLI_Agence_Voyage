@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Reservation</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body onload="renseignerVille()">
+  <form action="#" onsubmit="return Prix(this);">
+  Ville : <select name="ville" id="ville">
+   <option value="paris">Paris</option>
+   <option value="london">Londres</option>
+   <option value="madrid">Madrid</option>
+   <option value="rome">Rome</option>
+	</select>
+   </input><br>
+  Nom : <input type="text" name="nom"><br>
+  Prénom : <input type="text" name="prenom"><br>
+  Mail : <input type="email" name="mail"><br>
+  Téléphone : <input type="tel" name="tel"><br>
+  Date de départ : <input type="date" name="dateDeb"><br>
+  Date de retour : <input type="date" name="dateFin"><br>
+  Nombre d'adultes : <input type="number" name="nbrAd"><br>
+  Nombre d'enfants (-12) : <input type="number" name="nbrEn"><br>
+  Petit-déjeuner : <input type="button" name="dej"><br>
+  Questions : <input type="text" name="quest"><br>
+  <input type="submit" value="Submit">
+</form>
+<script type="text/javascript">
+   function Prix(formulaire) { // Fonction appelée par le bouton
+
+   }
+   function renseignerVille(){
+   	var ville = new URLSearchParams(window.location.search).get('ville');
+   	console.log(ville);
+   	switch (ville) {
+  		case 'Paris':
+  			document.getElementById("ville").selectedIndex = "0";
+    		break;
+  		case 'Londres':
+  			document.getElementById("ville").selectedIndex= "1";
+  			break;
+  		case 'Madrid':
+   			document.getElementById("ville").selectedIndex= "2";
+    		break;
+  		case 'Rome':
+   			document.getElementById("ville").selectedIndex="3";
+    		break;    		
+  		default:
+  			document.getElementById("ville").selectedIndex= "0";
+    		break;
+}
+   }
+</script>
+</body>
+</html>
