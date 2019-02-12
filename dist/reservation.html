@@ -29,19 +29,19 @@
    <option value=2>Le Cap</option>
         </select>
    <br>
-  Nom : <input type="text" id="nom"><br>
-  Prénom : <input type="text" id="prenom"><br>
-  Mail : <input type="email" id="mail"><br>
+  Nom : <input required type="text" id="nom"><br>
+  Prénom : <input required type="text" id="prenom"><br>
+  Mail : <input required type="email" id="mail"><br>
   Téléphone : <input type="tel" id="tel"><br>
-  Date de départ : <input type="date" id="dateDeb"><br>
-  Date de retour : <input type="date" id="dateFin"><br>
-  Nombre d'adultes : <input type="number" id="nbrAd"><br>
-  Nombre d'enfants (-12) : <input type="number" id="nbrEn"><br>
+  Date de départ : <input required type="date" id="dateDeb"><br>
+  Date de retour : <input required type="date" id="dateFin"><br>
+  Nombre d'adultes : <input type="number" min="1" id="nbrAd"><br>
+  Nombre d'enfants (-12) : <input required min="0" type="number" id="nbrEn"><br>
   Petit-déjeuner : <input type="checkbox" id="dej" ><br>
   Questions : <input type="text" id="quest"><br>
   <input type="submit" value="Submit">
 </form>
-
+<p id="Prix"></p>
 <footer>
         <h3>TLI - Lucas CLEMENTEI & Alexandre GUILLON</h3>
         <h3>Contact : <a href="mailto:alexandre.guillon@cpe.fr">
@@ -70,12 +70,14 @@
 
 
 	if(document.getElementById("dej").checked == true){
-		var prixTotal = (prix*nbrAd*dateDiff)+(prix*nbrEn*dateDiff)*0.4+(nbrEn+nbrAd)*8;
-		var string = "Le total etc... avec balise avec document.write()";
+		var prixTotal = prix*nbrAd*dateDiff+(prix*nbrEn*dateDiff)*0.4+dateDiff*(parseInt(nbrEn)+parseInt(nbrAd))*8;
+		var string = "Numéro réservation : <b>"+(parseInt(Math.random() * (99999 - 10000) + 10000))+"</b><br>Le total est de <b>"+prixTotal+"€</b> pour un séjour de <b>"+dateDiff+"</b> jour(s) avec <b>"+nbrAd+"</b> Adulte(s) et <b>"+nbrEn+"</b> enfant(s) avec petit déjeuner inclus.";
+    document.getElementById("Prix").innerHTML = string;
 	}
 	else{
 	var prixTotal = (prix*nbrAd*dateDiff)+(prix*nbrEn*dateDiff)*0.4;
-	var string = "Le total etc... avec balise";
+	var string = "Numéro réservation : <b>"+(parseInt(Math.random() * (99999 - 10000) + 10000))+"</b><br>Le total est de <b>"+prixTotal+"€</b> pour un séjour de <b>"+dateDiff+"</b> jour(s) avec <b>"+nbrAd+"</b> Adulte(s) et <b>"+nbrEn+"</b> enfant(s) avec petit déjeuner non inclus.";
+    document.getElementById("Prix").innerHTML = string;
 	}	
 
    }
