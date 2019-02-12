@@ -86,6 +86,30 @@ section{
     margin: 1px;
     float:right;
 }
+#result{
+    display: block;
+    width: 32%;
+    margin: 1px;
+    float:right;
+    background-color: rgb(177, 177, 177);
+    height: 450px;
+    padding: 5px;
+}
+#result > h2{
+    color: white;
+}
+#result > p{
+    font-size: 1.5em;
+    color: white;
+}
+#reservation{
+    display: block;
+    background-color: rgb(134, 134, 134);
+    width: 65%;
+    height: 450px;
+    margin: 1px;
+    float:left;
+}
 #infos{
     display: block;
     background-color: rgb(134, 134, 134);
