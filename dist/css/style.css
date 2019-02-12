@@ -3,7 +3,7 @@ body{
     padding: 0; 
 }
 header{
-    background-color: rgb(134, 134, 134);
+    background-color: black;
     margin-top: -28px;
 }
 header > h1{
@@ -69,7 +69,38 @@ footer h3 > a{
     color: white;
 }
 form {
-    background-color: gray;
+    background-color: rgb(134, 134, 134);
     color : white;
     font-size: 2em;
+}
+section{
+    display: inline-block;
+    width: 100%;
+}
+#infos >  h2{
+    text-decoration: underline;
+}
+#maps{
+    display: block;
+    width: 62%;
+    margin: 1px;
+    float:right;
+}
+#infos{
+    display: block;
+    background-color: rgb(134, 134, 134);
+    width: 35%;
+    height: 450px;
+    margin: 1px;
+    float:left;
+}
+#infos > h1 {
+    font-size: 1.9em;
+    text-decoration: underline;
+    color: white;
+}
+#infos > h2 {
+    font-size: 1.4em;
+    text-decoration: underline;
+    color: white;
 }
