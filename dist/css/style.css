@@ -104,3 +104,7 @@ section{
     text-decoration: underline;
     color: white;
 }
+#infos > p {
+    font-size: 1.4em;
+    color: black;
+}
