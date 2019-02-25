@@ -20,39 +20,54 @@
             <h2>Nos destinations</h2>
         </header>
     
-        
+        <div id="searchDiv">
+            <form style="background-color:rgb(129, 24, 24)">
+                <label for="price">Prix maximum</label>
+                <input type="range" id="price" name="price" min="1" max="51" step="1" value="100" oninput="r.value=parseInt(price.value)"/>
+                <output name="r">--</output><br />
+                <label for="child">Enfants acceptés</label>
+                <input type="range" id="child" name="child" min="0" max="100" step="1" value="100" oninput="r2.value=parseInt(child.value)"/>
+                <output name="r2">--</output><br />
+                <label for="date">Disponibilité</label>
+                <input type="checkbox" id="date" name="date" value="date"><br />
+                <label for="breakfast">Petit déjeuner</label>
+                <input type="checkbox" id="breakfast" name="breakfast" value="breakfast"><br />
+                <input type="button" value="Filtrer" id="filtre"/>
+            </form>
+        </div>
+        </div>
             <ul id="destination">
-                <li>
+                <li id="paris">
                     <img src="img/paris.jpg"/>
                     <h2><a href="reservation.html?ville=Paris">Paris</a></h2>
                     <h3>3 jours de rêves dans la capitale française</h3>
                     <p>Prix : 39 euros (par adulte et par jour)</p>
                 </li>
-                <li>
+                <li id="londres">
                     <img src="img/londres.jpg" />
                     <h2><a href="reservation.html?ville=Londres">Londres</a></h2>
                     <h3>British journey !</h3>
                     <p>Prix : 42 euros (par adulte et par jour)</p>
                 </li>
-                <li>
+                <li id="madrid">
                     <img src="img/madrid.jpg" />
                     <h2><a href="reservation.html?ville=Madrid">Madrid</a></h2>
                     <h3>1 semaine all inclusive à Madrid</h3>
                     <p>Prix : 51 euros (par adulte et par jour)</p>
                 </li>
-                <li>
+                <li id="rome">
                     <img src="img/rome.jpg" />
                     <h2><a href="reservation.html?ville=Rome">Rome</a></h2>
                     <h3>1 stage Pizza dans une pizzeria 5 étoiles</h3>
                     <p>Prix : 25 euros (par adulte et par jour)</p>
                 </li>
-                <li>
+                <li id="ny">
                         <img src="img/new-york.jpg" />
                         <h2><a href="reservation.html?ville=New-York">New-York</a></h2>
                         <h3>American Dream</h3>
                         <p>Prix : 38 euros (par adulte et par jour)</p>
                 </li>
-                <li>
+                <li id="lecap">
                         <img src="img/ads.jpg" />
                         <h2><a href="reservation.html?ville=Le Cap">Le Cap</a></h2>
                         <h3>L'Afrique du Sud à petit prix</h3>
@@ -69,6 +84,66 @@
                     </h3>
                     <br />
             </footer> 
-
     </body>
+    <script>
+        var paris = {};
+        paris.price = 39;
+        paris.child = 3;
+        paris.availability = false;
+        paris.breakfast = true;
+
+        var londres = {};
+        londres.price = 42;
+        londres.child = 2;
+        londres.availability = true;
+        londres.breakfast = true;
+
+        var madrid = {};
+        madrid.price = 51;
+        madrid.child = 6;
+        madrid.availability = true;
+        madrid.breakfast = false;
+
+        var rome = {};
+        rome.price = 25;
+        rome.child = 0;
+        rome.availability = true;
+        rome.breakfast = false;
+
+        var ny = {};
+        ny.price = 38;
+        ny.child = 2;
+        ny.availability = false;
+        ny.breakfast = true;
+
+        var lecap = {};
+        lecap.price = 2;
+        ny.child = 5;
+        ny.availability = true;
+        ny.breakfast = true;
+
+        var trips = [paris, londres, madrid, rome, ny, lecap];
+
+        var iParis = document.getElementById("paris");
+        var iLondres = document.getElementById("londres");
+        var iMadrid = document.getElementById("madrid");
+        var iRome = document.getElementById("rome");
+        var iNY = document.getElementById("ny");
+
+
+        var priceFilter = document.getElementById("price").value;
+        
+        var btn = document.getElementById("filtre");
+        btn.onclick = function(){
+            var selectedTrips = [];
+            trips.forEach(function(trip) {
+                if(trip.price > priceFilter){
+                    selectedTrips.push(trip);
+                }
+            });
+            console.log(selectedTrips);
+        };
+        
+    
+    </script>
     </html>
