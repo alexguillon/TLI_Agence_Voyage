@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Reservation - A&L</title>
   <link rel="stylesheet" href="css/style.css">
-
+ </script>
 </head>
 <body onload="renseignerVille()">
         <header>
@@ -14,7 +14,8 @@
                             <li><a href="index.html">Les destinations</a></li>
                             <li><a href="reservation.html">Réservation</a></li>
                             <li><a href="contact.html">A propos & Contact</a></li>
-                            <li><button type="button">Se connecter</button></li>
+                            <li><button id="connexion">Se connecter</button></li>
+                            <li id="is_connect">Vous n'êtes pas authentifié</li>
                         </ul>
                 </nav>
                 <h2>Nos destinations</h2>
@@ -50,6 +51,7 @@
         <p id="Prix"></p>
 </div>
 </section>
+
 <footer>
         <h3>TLI - Lucas CLEMENTEI & Alexandre GUILLON</h3>
         <h3>Contact : <a href="mailto:alexandre.guillon@cpe.fr">
@@ -116,6 +118,17 @@
     		break;
 }
    }
+         document.getElementById("connexion").onclick = function () {
+        location.href = "connexion.html";
+    };
+        document.addEventListener("DOMContentLoaded", function(event) {
+    if(sessionStorage.getItem('identifiant') !== null)
+    {
+        document.getElementById("is_connect").innerText = "Bonjour "+sessionStorage.getItem('nom');
+    }
+
+ 
+});
 </script>
 </body>
 </html>

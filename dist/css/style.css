@@ -139,3 +139,6 @@ section{
     display: inline-block;
     background-color: rgb(129, 24, 24);
 }
+#is_connect {
+    color: white;
+}
