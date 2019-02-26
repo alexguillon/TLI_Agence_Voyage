@@ -23,16 +23,16 @@
         <div id="searchDiv">
             <form style="background-color:rgb(129, 24, 24)">
                 <label for="price">Prix maximum</label>
-                <input type="range" id="price" name="price" min="1" max="51" step="1" value="100" oninput="r.value=parseInt(price.value)"/>
+                <input type="range" id="price" name="price" min="1" max="60" step="1" value="60" oninput="r.value=parseInt(price.value)"/>
                 <output name="r">--</output><br />
                 <label for="child">Enfants acceptés</label>
-                <input type="range" id="child" name="child" min="0" max="100" step="1" value="100" oninput="r2.value=parseInt(child.value)"/>
+                <input type="range" id="child" name="child" min="0" max="10" step="1" value="0" oninput="r2.value=parseInt(child.value)"/>
                 <output name="r2">--</output><br />
                 <label for="date">Disponibilité</label>
-                <input type="checkbox" id="date" name="date" value="date"><br />
+                <input type="checkbox" id="date" name="date"><br />
                 <label for="breakfast">Petit déjeuner</label>
                 <input type="checkbox" id="breakfast" name="breakfast" value="breakfast"><br />
-                <input type="button" value="Filtrer" id="filtre"/>
+                <input type="button" value="Filtrer" id="filter"/>
             </form>
         </div>
         </div>
@@ -85,63 +85,37 @@
                     <br />
             </footer> 
     </body>
+    <script src="/js/object-creation.js"></script>
     <script>
-        var paris = {};
-        paris.price = 39;
-        paris.child = 3;
-        paris.availability = false;
-        paris.breakfast = true;
-
-        var londres = {};
-        londres.price = 42;
-        londres.child = 2;
-        londres.availability = true;
-        londres.breakfast = true;
-
-        var madrid = {};
-        madrid.price = 51;
-        madrid.child = 6;
-        madrid.availability = true;
-        madrid.breakfast = false;
-
-        var rome = {};
-        rome.price = 25;
-        rome.child = 0;
-        rome.availability = true;
-        rome.breakfast = false;
-
-        var ny = {};
-        ny.price = 38;
-        ny.child = 2;
-        ny.availability = false;
-        ny.breakfast = true;
-
-        var lecap = {};
-        lecap.price = 2;
-        ny.child = 5;
-        ny.availability = true;
-        ny.breakfast = true;
-
-        var trips = [paris, londres, madrid, rome, ny, lecap];
-
-        var iParis = document.getElementById("paris");
-        var iLondres = document.getElementById("londres");
-        var iMadrid = document.getElementById("madrid");
-        var iRome = document.getElementById("rome");
-        var iNY = document.getElementById("ny");
-
-
-        var priceFilter = document.getElementById("price").value;
-        
-        var btn = document.getElementById("filtre");
+        var btn = document.getElementById("filter");
         btn.onclick = function(){
-            var selectedTrips = [];
+            trips.forEach(function(trip) {
+                trip.htmlName.style.display = "inline-block";
+            });
+            var priceFilter = document.getElementById("price").value;
+            var childFilter = document.getElementById("child").value;
+            var availabilityFilter = document.getElementById("date").checked;
+            var breakfastFilter = document.getElementById("breakfast").checked;
+
+            var selectedTrips = []; 
             trips.forEach(function(trip) {
                 if(trip.price > priceFilter){
                     selectedTrips.push(trip);
                 }
+                if(trip.child < childFilter){
+                    selectedTrips.push(trip);
+                }
+                if(availabilityFilter && trip.availability==false){
+                    selectedTrips.push(trip);
+                }
+                if(breakfastFilter && trip.breakfast==false){
+                    selectedTrips.push(trip);
+                }
             });
-            console.log(selectedTrips);
+            selectedTrips.forEach(function(selectedTrip) {
+                selectedTrip.htmlName.style.display = "none";
+            });
+            
         };
         
     
