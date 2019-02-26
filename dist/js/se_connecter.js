@@ -1,14 +1,14 @@
 var client_un = {};
 client_un.identifiant = "client1";
 client_un.mdp = "password1";
-client_un.nom = "Nicolas Jannolfo";
+client_un.nom = "Lucas Clementei";
 
 var client_deux = {};
 client_deux.identifiant = "client2";
 client_deux.mdp = "password2";
-client_deux.nom = "John Doe";
+client_deux.nom = "Alexandre Guillon";
 
-var comptes = [client_un];
+var comptes = [client_un, client_deux];
 
 function connect(){
     var identifiant = document.getElementById("identifiant").value;
