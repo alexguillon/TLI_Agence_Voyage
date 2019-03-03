@@ -6,7 +6,7 @@
         <title>A&L - Agence de voyage</title>
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/se_connecter.js"></script>
-        <script src="js/object-creation.js"></script>
+        
     </head>
 
     <body>
@@ -37,7 +37,7 @@
                 <label for="date">Disponibilité</label>
                 <input type="checkbox" id="breakfast" name="breakfast" value="breakfast"><br />
                 <label for="breakfast">Petit déjeuner</label>
-                <input type="submit" value="Filtrer" id="filter"/>
+                <input type="button" value="Filtrer" id="filter"/>
             </form>
         </div>
             <ul id="destination">
@@ -88,10 +88,12 @@
                     </h3>
                     <br />
             </footer> 
+            <script src="js/object-creation.js"></script>
                   <script>
         var btn = document.getElementById("filter");
         btn.onclick = function(){
             trips.forEach(function(trip) {
+                console.log(trip);
                 trip.htmlName.style.display = "inline-block";
             });
             var priceFilter = document.getElementById("price").value;
