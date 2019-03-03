@@ -16,9 +16,10 @@
                             <li><a href="contact.html">A propos & Contact</a></li>
                             <li><button id="connexion">Se connecter</button></li>
                             <li id="is_connect">Vous n'êtes pas authentifié</li>
+                            <li><a href="panier.html" id="cart">Mon panier</a></li>
                         </ul>
                 </nav>
-                <h2>Nos destinations</h2>
+                <h2>Réserver</h2>
             </header>
 <section>
 <div id="reservation">
@@ -78,18 +79,28 @@
     var diff = Math.abs(dateFin - dateDeb) / 1000;
     var dateDiff = Math.floor(diff / 86400);
 
-
 	if(document.getElementById("dej").checked == true){
 		var prixTotal = prix*nbrAd*dateDiff+(prix*nbrEn*dateDiff)*0.4+dateDiff*(parseInt(nbrEn)+parseInt(nbrAd))*8;
 		var string = "Numéro réservation : <b>"+(parseInt(Math.random() * (99999 - 10000) + 10000))+"</b><br>Le total est de <b>"+prixTotal+"€</b> pour un séjour de <b>"+dateDiff+"</b> jour(s) avec <b>"+nbrAd+"</b> Adulte(s) et <b>"+nbrEn+"</b> enfant(s) avec petit déjeuner inclus.";
-    document.getElementById("Prix").innerHTML = string;
+        document.getElementById("Prix").innerHTML = string;
 	}
 	else{
-	var prixTotal = (prix*nbrAd*dateDiff)+(prix*nbrEn*dateDiff)*0.4;
-	var string = "Numéro réservation : <b>"+(parseInt(Math.random() * (99999 - 10000) + 10000))+"</b><br>Le total est de <b>"+prixTotal+"€</b> pour un séjour de <b>"+dateDiff+"</b> jour(s) avec <b>"+nbrAd+"</b> Adulte(s) et <b>"+nbrEn+"</b> enfant(s) avec petit déjeuner non inclus.";
-    document.getElementById("Prix").innerHTML = string;
+	    var prixTotal = (prix*nbrAd*dateDiff)+(prix*nbrEn*dateDiff)*0.4;
+	    var string = "Numéro réservation : <b>"+(parseInt(Math.random() * (99999 - 10000) + 10000))+"</b><br>Le total est de <b>"+prixTotal+"€</b> pour un séjour de <b>"+dateDiff+"</b> jour(s) avec <b>"+nbrAd+"</b> Adulte(s) et <b>"+nbrEn+"</b> enfant(s) avec petit déjeuner non inclus.";
+        document.getElementById("Prix").innerHTML = string;
 	}	
-
+    //Ajout au panier
+    var cartArray = JSON.parse(sessionStorage.getItem("cartArray"));
+    if(cartArray === null){
+        cartArray = [];
+    }
+    var item = {};
+    item.price = prixTotal;
+    item.trip =  document.getElementById("ville").options[document.getElementById("ville").selectedIndex].text;
+    item.begin = dateDeb;
+    item.last = dateFin;
+    cartArray.push(item);
+    sessionStorage.setItem("cartArray", JSON.stringify(cartArray));
    }
    function renseignerVille(){ //Permet de regarder si l'utilisateur est passé par la page d'accueil ou pas pour "pré-remplir" le formulaire
    	var ville = new URLSearchParams(window.location.search).get('ville');
@@ -116,7 +127,7 @@
   		default:
   			document.getElementById("ville").selectedIndex= "0";
     		break;
-}
+    }
    }
          document.getElementById("connexion").onclick = function () {
         location.href = "connexion.html";

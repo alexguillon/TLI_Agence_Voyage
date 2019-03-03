@@ -142,3 +142,9 @@ section{
 #is_connect {
     color: white;
 }
+#cart {
+    color : rgb(212, 36, 5);
+}
+th,td{
+    border: 1px solid black;
+}

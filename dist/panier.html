@@ -3,12 +3,12 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Contact - A&L</title>
+        <title>A&L - Agence de voyage</title>
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/se_connecter.js"></script>
     </head>
 
-    <body onload="">
+    <body>
         <header>
             <h1>A&L - Agence de voyage</h1>
             <nav>
@@ -21,24 +21,16 @@
                         <li><a href="panier.html" id="cart">Mon panier</a></li>
                     </ul>
             </nav>
-            <h2>A propos et contact</h2>
+            <h2>Mon panier</h2>
         </header>
-    
-            <section>
-                <div id="infos">
-                <h1>Contact</h1>
-                <h2>Adresse :</h2>
-                <p>25 place de la Paix, 69100 Villeurbanne</p>
-                <h2>Téléphone :</h2>
-                <p>06 52 05 62 66</p>
-                <h2>Demande de renseignements :</h2>
-                <textarea rows="4" cols="50" name="comment" form="usrform">Bonjour, je souhaiterais obtenir des renseignements sur</textarea>
-                <input type="submit">
-            </div>
-                <div id="maps">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.9509450423925!2d4.912967815457989!3d45.752129379105455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c107c00c1ec9%3A0xa5fd2a43c5411dbf!2s25+Place+de+la+Paix%2C+69100+Villeurbanne!5e0!3m2!1sfr!2sfr!4v1549991133392" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </section>
+        <table>
+            <thead>
+            <th>Destination</th>
+            <th>Prix</th>
+            <th>Dates</th>
+            </thead>
+            <tbody></tbody>
+        </table>
 
             <footer>
                     <h3>TLI - Lucas CLEMENTEI & Alexandre GUILLON</h3>
@@ -49,18 +41,43 @@
                     </h3>
                     <br />
             </footer> 
-            <script type="text/javascript">
-         document.getElementById("connexion").onclick = function () {
-        location.href = "connexion.html";
+    </body>
+    <script>
+    document.getElementById("connexion").onclick = function () {
+    location.href = "connexion.html";
     };
-        document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function(event) {
     if(sessionStorage.getItem('identifiant') !== null)
     {
         document.getElementById("is_connect").innerText = "Bonjour "+sessionStorage.getItem('nom');
     }
 
+    function addRow(destination,price, dateDeb, dateFin)
+    {
+         if (!document.getElementsByTagName) return;
+         tabBody=document.getElementsByTagName("tbody").item(0);
+         row=document.createElement("tr");
+         cell1 = document.createElement("td");
+         cell2 = document.createElement("td");
+         cell3 = document.createElement("td");
+         textnode1=document.createTextNode(destination);
+         textnode2=document.createTextNode(price + " €");
+         textnode3 = document.createTextNode(dateDeb+ " - "+ dateFin);
+         cell1.appendChild(textnode1);
+         cell2.appendChild(textnode2);
+         cell3.appendChild(textnode3);
+         row.appendChild(cell1);
+         row.appendChild(cell2);
+         row.appendChild(cell3);
+         tabBody.appendChild(row);
+    }
+
+    var storedTrips = JSON.parse(sessionStorage.getItem("cartArray"));
+    storedTrips.forEach(element => {
+        addRow(element.trip, element.price, element.begin, element.last);
+    });
  
 });
-            </script>
-    </body>
+    
+    </script>
     </html>
