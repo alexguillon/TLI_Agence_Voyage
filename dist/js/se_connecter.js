@@ -9,20 +9,20 @@ client_deux.mdp = "bbbb";
 client_deux.nom = "Alexandre Guillon";
 
 var client_trois = {};
-client_un.identifiant = "cccc";
-client_un.mdp = "cccc";
-client_un.nom = "Louis 14";
+client_trois.identifiant = "cccc";
+client_trois.mdp = "cccc";
+client_trois.nom = "Louis 14";
 
 var client_quatre = {};
-client_deux.identifiant = "dddd";
-client_deux.mdp = "dddd";
-client_deux.nom = "Emmanuel Macron";
+client_quatre.identifiant = "dddd";
+client_quatre.mdp = "dddd";
+client_quatre.nom = "Emmanuel Macron";
 var tab_comptes = [client_un, client_deux, client_trois, client_quatre];
 
 function connect(){
     var identifiant = document.getElementById("identifiant").value;
     var password = document.getElementById("password").value;
-
+    var sucess=false;
     if(identifiant !== null && password !== null)
     {
         for(var i in tab_comptes)
@@ -34,20 +34,14 @@ function connect(){
                     sessionStorage.setItem("identifiant", tab_comptes[i].identifiant);
                     sessionStorage.setItem("nom", tab_comptes[i].nom);
                     window.location.reload(true);
+                    sucess=true;
                 }
-                else
-                {
-                    alert('L\'identification a échoué');
-                }
-            }
-            else
-            {
-                alert('L\'identification a échoué');
             }
         }
     }
+    if(sucess)
+        alert('L\'identification est réussie');
     else
-    {
         alert('L\'identification a échoué');
-    }
+
 }
